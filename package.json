@@ -1,5 +1,5 @@
 {
-  "name": "superchair/sem-rel-test",
+  "name": "@superchair/sem-rel-test",
   "description": "test semver release",
   "main": "index.js",
   "scripts": {
