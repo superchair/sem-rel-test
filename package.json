@@ -1,11 +1,51 @@
 {
-  "name": "test",
-  "version": "1.0.0",
-  "description": "",
+  "name": "superchair/sem-rel-test",
+  "description": "test semver release",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC"
+  "author": "superchair",
+  "license": "ISC",
+  "release": {
+    "branches": [
+      "main",
+      {
+        "name": "next",
+        "prerelease": true
+      }
+    ],
+    "plugins": [
+      [
+        "@semantic-release/commit-analyzer",
+        {
+          "preset": "conventionalcommits"
+        }
+      ],
+      [
+        "@semantic-release/release-notes-generator",
+        {
+          "preset": "conventionalcommits"
+        }
+      ],
+      [
+        "@semantic-release/npm",
+        {
+          "npmPublish": false,
+          "tarballDir": "dist",
+          "packageJson": true
+        }
+      ],
+      [
+        "@semantic-release/github",
+        {
+          "successCommentCondition": false
+        }
+      ]
+    ]
+  },
+  "dependencies": {
+    "conventional-changelog-conventionalcommits": "^8.0.0",
+    "semantic-release": "^24.2.3"
+  }
 }
